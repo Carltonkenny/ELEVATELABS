@@ -1,61 +1,98 @@
-# ELEVATELABS
-# Data Cleaning and Preprocessing for ML - Titanic Dataset
+# ELEVATELABS Internship Series  
+## Complete Machine Learning Data Pipeline: Titanic & Bangalore Housing
 
-## Objective
+---
 
-This repository demonstrates a practical, step-wise approach to preparing raw tabular data for machine learning, using the Titanic passenger dataset as an example. The workflow is built for reliability and clarity, following proven industry methods.
+## Overview
 
-## Workflow Summary
+This repository demonstrates the full workflow of data cleaning, exploratory data analysis, and supervised machine learning on real-world datasets. Each task below is self-contained and modular, allowing for fast onboarding, robust reproducibility, and strong professional documentation.
 
-1. **Data Import and Inspection**
-   - Loaded Titanic CSV from public source.
-   - Verified shape, column types, and missing value counts.
+---
 
-2. **Missing Value Handling**
-   - Imputed 'Age' using median for stability against outliers.
-   - Imputed 'Embarked' using the mode (most frequent value).
-   - Dropped 'Cabin' due to excessive missing rates.
+## Task 1: Data Cleaning and Preprocessing (Titanic Dataset)
 
-3. **Categorical Encoding**
-   - Converted binary 'Sex' column to numerical format.
-   - One-hot encoded 'Embarked' for model compatibility.
-   - Dropped high-cardinality columns 'Name' and 'Ticket'.
+### Objective
 
-4. **Feature Scaling**
-   - Standardized 'Age' and 'Fare' to zero mean, unit variance for algorithmic consistency.
+- Prepare the Titanic dataset for machine learning through robust cleaning and encoding steps.
 
-5. **Outlier Detection and Removal**
-   - Visualized 'Age' and 'Fare' with boxplots.
-   - Removed records beyond 3 standard deviations from mean.
+### Workflow
 
-6. **Output and Preparation**
-   - Cleaned dataset exported for downstream modeling.
-   - Train/test split performed for reproducibility.
+- **Data Import & Inspection:** Loaded CSV; explored shape, column info, and nulls.
+- **Missing Data Handling:** Imputed 'Age' (median), 'Embarked' (mode); dropped 'Cabin' due to excessive nulls.
+- **Categorical Encoding:** Binary encoding for 'Sex', one-hot for 'Embarked'.
+- **Feature Scaling:** Standardized numeric columns ('Age', 'Fare') for ML stability.
+- **Outlier Removal:** Visualized distributions; filtered rows 3 SD above or below mean.
+- **Output:** Produced a clean, normalized, model-ready `titanic_cleaned.csv`; performed train/test split.
 
-## Design Choices
+### Files
 
-- **Imputation:** Median preferred for 'Age' to minimize bias from typical outlier ages.
-- **Encoding:** Label encoding for clear binary features, One-hot for 3-class categorical.
-- **Dropping Features:** 'Cabin', 'Name', 'Ticket' are left out for baseline tabular ML tasks—advanced features can be built as needed.
-- **Scaling:** StandardScaler chosen for compatibility with most ML models.
+- `task_1_cleaning.ipynb` – fully commented Jupyter/Colab notebook
+- `titanic_cleaned.csv` – clean output
 
-## Reproducibility
+---
 
-All steps are modular and explained in the Jupyter/Colab notebook.  
-Simply run notebook cells sequentially to reproduce results.
+## Task 2: Exploratory Data Analysis (Titanic Dataset)
 
-## Files
+### Objective
 
-- `task_1_cleaning.ipynb` — Complete notebook with explanations and code.
-- `titanic_cleaned.csv` — Output after cleaning and preprocessing.
+- Discover trends, distributions, and relationships using visual and statistical EDA.
 
-## Getting Started
+### Workflow
 
-1. Clone the repository.
-2. Open `task_1_cleaning.ipynb` in Colab or Jupyter.
-3. Run cells and inspect outputs interactively.
+- **Summary Statistics:** Used `.describe()` and value counts for all columns.
+- **Visualizations:** Histograms and boxplots for distributions, bar plots for categories.
+- **Relationship Analysis:** Pair plots & correlation matrix to understand variable interaction.
+- **Insights:**
+  - Survival rate higher for females, first class, and younger passengers.
+  - Fare and age distributions revealed both skew and outliers.
+  - Multicollinearity identified between Pclass, Fare, and Age.
+- **Notebook:** All charts and comments are in `task_2_eda.ipynb`.
+
+### Files
+
+- `task_2_eda.ipynb` – full EDA process
+
+---
+
+## Task 3: Advanced Regression Modeling (Bangalore House Prices)
+
+### Objective
+
+- Predict house prices in Bangalore with a pipeline that demonstrates senior-level applied ML, using both historic and 2025 datasets.
+
+### Workflow
+
+- **Dual Data Import:** Historic (main) and 2025 (latest) datasets from public sources/Google Drive.
+- **Cleaning & Feature Engineering:** Imputed key columns, converted BHK, engineered price/sqft, and performed one-hot encoding of top locations.
+- **Train/Test Split:** Built robust cross-validation environment; selected optimal features.
+- **Modeling:** Trained and interpreted a linear regression model.
+- **Evaluation:**
+  - On historic data: R² ~0.38, MAE ~51.
+  - On 2025 data: Model showed negative R², indicating distribution drift and the challenge of model generalization.
+- **Visualization:** Scatter plots (actual vs predicted), residual distribution, feature importance reporting.
+- **Conclusions:**
+  - Model performance highlights both predictive strengths and pitfalls of using past data for future prices.
+  - Demonstrates how data drift affects real-world deployment and the necessity for retraining.
+
+### Files
+
+- `bangalorepropertydataset.ipynb` – entire regression pipeline
+- `Bengaluru_House_Data.csv` & `house_prices_bangalore.csv` – raw data
+
+---
+
+## How to Use
+
+1. Clone this repo and download all `.ipynb` and data files.
+2. Open any task notebook in Colab or Jupyter.
+3. Update file paths if needed, then run all cells in order.
+4. Review markdown outputs for insights and ready-to-use results.
+
+---
 
 ## Contact
 
-For questions about methodology or internship requirements, reach out on GitHub Issues or by email.
+For questions, implementation details, or interview references,  
+contact Carlton Kenny (Garden City University) or open a GitHub Issue.
 
+---
