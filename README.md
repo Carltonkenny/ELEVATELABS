@@ -88,6 +88,24 @@ This repository demonstrates the full workflow of data cleaning, exploratory dat
 3. Update file paths if needed, then run all cells in order.
 4. Review markdown outputs for insights and ready-to-use results.
 
+
+---
+
+### **Task 4: Hospital Readmission Prediction (Binary Classification)**
+
+- **Objective:** Predict if a hospital patient will be readmitted within 30 days using logistic regression.
+- **Dataset:** 5,000 training + 2,000 test samples; 8 features (age, diagnosis, procedures, etc.)
+- **Class Imbalance:** 81.2% not readmitted, 18.8% readmitted (handled with class balancing)
+- **Key Results:**
+  - Optimal Threshold: 0.10 (for healthcare: maximize recall)
+  - Recall at 0.10: 100% (catches all readmitted patients)
+  - Test predictions: Generated for 2,000 unseen samples
+  - Feature insights: Kidney disease & diabetes increase risk; skilled nursing discharge decreases it
+- **Skills Demonstrated:** Binary classification, threshold tuning, precision-recall trade-offs, class imbalance handling, healthcare ML
+- **Notebook:** `task_4_classification.ipynb`
+
+---
+
 ---
 
 ## Contact
